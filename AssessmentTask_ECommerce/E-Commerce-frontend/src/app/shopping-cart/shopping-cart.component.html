@@ -1,0 +1,16 @@
+<div *ngIf="cart">
+    <h2>Shopping Cart</h2>
+    <div *ngFor="let item of cart.cartItems">
+      <span>{{ item.product.productName }} - {{ item.quantity }}</span>
+      <button (click)="updateQuantity(item.product.productID, item.quantity + 1)">Increase</button>
+      <button (click)="updateQuantity(item.product.productID, item.quantity - 1)">Decrease</button>
+      <button (click)="removeItem(item.product.productID)">Remove</button>
+    </div>
+    <div>Total Price: {{ cart.totalPrice }}</div>
+    <div>
+      <input [(ngModel)]="discountCode" placeholder="Enter discount code" />
+      <button (click)="applyDiscount()">Apply Discount</button>
+    </div>
+    <div>Discounted Total: {{ discountedTotal }}</div>
+  </div>
+  

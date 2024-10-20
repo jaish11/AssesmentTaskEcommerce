@@ -1,0 +1,50 @@
+<div class="content">
+  <h2>Product List</h2>
+
+  <!-- Product Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productID }}</td>
+        <td *ngIf="editingProductId !== product.productID">{{ product.productName }}</td>
+        <td *ngIf="editingProductId === product.productID">
+          <input type="text" [(ngModel)]="updatedProductName" [value]="product.productName" />
+        </td>
+        <td *ngIf="editingProductId !== product.productID">{{ product.price | currency }}</td>
+        <td *ngIf="editingProductId === product.productID">
+          <input type="number" [(ngModel)]="updatedProductPrice" [value]="product.price" />
+        </td>
+        <td *ngIf="editingProductId !== product.productID">{{ product.description }}</td>
+        <td *ngIf="editingProductId === product.productID">
+          <input type="text" [(ngModel)]="updatedProductDescription" [value]="product.description" />
+        </td>
+        <td>
+          <button *ngIf="editingProductId !== product.productID" (click)="editProduct(product.productID)">Edit</button>
+          <button *ngIf="editingProductId === product.productID" (click)="updateProduct(product.productID)">Update</button>
+          <button (click)="deleteProduct(product.productID)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add New Product Form -->
+  <h3>Add New Product</h3>
+  <form (ngSubmit)="addProduct()">
+    <label for="productName">Name:</label>
+    <input type="text" [(ngModel)]="newProductName" name="productName" required />
+    <label for="productPrice">Price:</label>
+    <input type="number" [(ngModel)]="newProductPrice" name="productPrice" required />
+    <label for="productDescription">Description:</label>
+    <input type="text" [(ngModel)]="newProductDescription" name="productDescription" required />
+    <button type="submit">Add Product</button>
+  </form>
+</div>

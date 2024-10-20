@@ -1,0 +1,252 @@
+/* General styling for the content */
+.content {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in; /* Fade-in animation */
+}
+
+/* Fade-in animation for the content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styling for the product list title */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  animation: fadeInDown 0.6s ease-in; /* Slide-down animation */
+}
+
+/* Slide-down animation for the heading */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.7s ease-in; /* Slide-up animation for the table */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  animation: fadeInRow 0.8s ease-in; /* Fade-in effect for each row */
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+}
+
+td {
+  background-color: white;
+  font-size: 14px;
+}
+
+/* Fade-in animation for table rows */
+@keyframes fadeInRow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Add a hover effect to buttons */
+button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+/* Animation for button hover */
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+/* Add Product Button Styling */
+.add-product-button {
+  margin-top: 20px;
+  display: block;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 200px; /* Max width for larger screens */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInButton 1s ease-in; /* Fade-in animation for the button */
+}
+
+/* Fade-in animation for the Add Product button */
+@keyframes fadeInButton {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Styling for input fields */
+input[type="text"], input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 200px;
+  font-size: 14px;
+  transition: border-color 0.3s ease; /* Smooth transition for input focus */
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: #4CAF50; /* Change border color on focus */
+}
+
+/* Responsive design: Make the table scrollable and manage layout for small screens */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  input[type="text"], input[type="number"] {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  input[type="text"], input[type="number"] {
+    max-width: 120px;
+  }
+
+  /* Make sure the add product button is centered and takes full width */
+  .add-product-button {
+    width: 100%;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Form fields */
+form .form-group {
+  width: calc(50% - 20px); /* Two-column layout */
+  display: flex;
+  flex-direction: column;
+}
+
+form .form-group.full-width {
+  width: 100%;
+}
+
+/* Submit button */
+form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #45a049;
+}
